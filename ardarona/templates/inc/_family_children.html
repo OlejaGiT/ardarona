@@ -1,0 +1,27 @@
+<div class="section__header">
+    <h1 class="section__title">children</h1>
+</div>
+<div class="family__children">
+    {% for el in mot %}
+    <div class="children__item">
+        <div class="children__inner">
+            <div class="children__img">
+                <img src="{{el.img.url}}" alt="">
+                <a href="{% url 'family' el.id %}"><div class="children__title">{{el.name}}</div></a>
+            </div>
+           
+        </div>
+    </div>
+    {% endfor %}
+    {% for el in puppy %}
+    <div class="children__item">
+        <div class="children__inner">
+            <div class="children__img">
+                <img src="{{el.img.url}}" alt="">
+                <a href="{% url 'family' el.id %}"><div class="children__title">{{el.name}}</div></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>

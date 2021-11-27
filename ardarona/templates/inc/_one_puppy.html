@@ -1,0 +1,46 @@
+<div class="parents__col--first">
+    <div class="section__header">
+        <h1 class="section__title">puppy</h1>
+    </div>
+    <div class="about__item_puppy">
+        <div class="about__img">
+
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{{family.img.url}}" class="d-block w-100" alt="...">
+                </div>
+                
+            </div>
+            {% for el in photos %}
+              <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{{el.imgs.url}}" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+          
+        
+    </div>
+    </div>
+
+
+    <body onload="set_active_slide()"></body>
+
+    <script>
+    function set_active_slide() {
+    document.getElementsByClassName("carousel-item")[0].classList.add("active")
+    }
+    </script>

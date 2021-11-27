@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{family.name}}{% endblock %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <div class="family">
+            
+            {% if family.father.id %}
+            {% include 'inc/_all_family.html' %}
+            
+            
+            {% elif family.mother.id %}
+            {% include 'inc/_all_family.html' %}
+            
+            {% else %}
+            {% include 'inc/_one_family.html' %}
+            {% endif %}
+
+            
+            {% if puppy %}
+            {% include 'inc/_family_children.html' %}
+            
+            {% elif mot %}
+            {% include 'inc/_family_children.html' %}
+            
+            {% else %}
+            <div class="else__text">У этой собаки еще нет щенков</div>
+            {% endif %}
+
+
+        </div>
+</div>
+</section>
+    {% endblock %}

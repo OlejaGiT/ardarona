@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+    <div class="section__header">
+        <h1 class="section__title">puppies</h1>
+        </div>
+
+
+
+<div class="blog">
+{% for el in dog %}
+{% if el.display_puppy.dog_display_puppy == "Да" %}
+<div class="blog__item">
+    <div class="blog__header">
+        <a href="{% url 'family' el.id %}">
+            
+            <img class="blog__photo" src="{{ el.img.url }}" alt="">
+            
+        </a>
+        <div class="blog__date">
+            <div class="blog__date-day">{{ el.age|date:"d" }}</div>
+            {{ el.age|date:"M" }}
+        </div>
+    </div>
+    <div class="blog__content">
+        <div class="blog__title">
+            <a href="">{{ el.name }}</a>
+        </div>
+        <div class="blog__text">{{ el.info|safe|linebreaks|truncatechars_html:29 }}
+        </div>
+    </div>
+    <div class="blog__footer">
+        <div class="blog__stat">
+            <div class="blog__stat-item">
+                
+        <span class="blog__stat-status">
+            {% if el.position.dog_position == "Доступен" %}
+            <div class="puppy__stat-statusG">{{ el.position }}</div> 
+            {% elif el.position.dog_position == "Недоступен" %}
+            <div class="puppy__stat-statusR">{{ el.position }}</div> 
+            {% elif el.position.dog_position == "Резерв" %}
+            <div class="puppy__stat-statusY">{{ el.position }}</div> 
+            {% endif %}</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% else %}
+    {% endif %}
+
+{% endfor %}
+</div>
+
+</div>
+</section>
+{% endblock %}

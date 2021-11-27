@@ -1,0 +1,54 @@
+<div class="parents__col--second">
+    <div class="parents__item">
+
+
+        <div class="section__header">
+            <h1 class="section__title">pet card</h1>
+        </div>
+
+        <div class="parents__content">
+            <div class="parents__name">
+                name: <div class="parents__data">{{ family.name }}</div>
+            </div>
+            <div class="parents__age">
+                born: <div class="parents__data">{{ family.age|date:"d M Y" }}</div>
+            </div>
+            <div class="parents__weight">
+                weight: <div class="parents__data">{{ family.weight }}</div>kg
+            </div>
+            <div class="parents__height">
+                height: <div class="parents__data">{{ family.height }}</div>sm
+            </div>
+            <div class="parents__color">
+                color: <div class="parents__data">{{ family.color }}</div>
+            </div>
+            <div class="parents__awards">
+                number of awards: <div class="parents__data">{{ family.number_of_awards }}</div>
+            </div>
+            <div class="parents__gender">
+                gender: <div class="parents__data">{{ family.gender }}</div>
+            </div>
+            <div class="parents__info">
+                <div class="parents__status">
+                    position: <div class="parents__stat">
+                        {% if family.position.dog_position == "Доступен" %}
+                        <div class="parents__stat--g">{{ family.position }}</div> 
+                        {% elif family.position.dog_position == "Недоступен" %}
+                        <div class="parents__stat--r">{{ family.position }}</div> 
+                        {% elif family.position.dog_position == "Резерв" %}
+                        <div class="parents__stat--y">{{ family.position }}</div> 
+                        {% endif %}</div>
+                </div>
+                <div class="parents__status">
+                    status: <div class="parents__stat">
+                        {% if family.status.dog_status == "Активный" %}
+                        <div class="parents__stat--g">{{ family.status }}</div> 
+                        {% elif family.status.dog_status == "Неактивный" %}
+                        <div class="parents__stat--r">{{ family.status }}</div>  
+                        {% endif %}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

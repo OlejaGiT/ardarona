@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load about_tags %}
+
+{% block title %}Про нас{% endblock %}
+
+{% block content %}
+                  <section class="section" id="about">
+        <div class="section__header">
+          <h1 class="section__title">Galery</h1>
+          </div>
+          {% for el in about %}
+        <div class="works">
+            <div class="works__col">
+           <div class="works__item">
+            
+                   <img class="works__image" src="{{el.img_one.url}}" alt="">
+
+               <div class="works__info">
+                   <div class="works__title">text</div>
+                   <div class="works__text">text</div>
+               </div>
+           </div>
+           <div class="works__item">
+
+                  <img class="works__image" src="{{el.img_two.url}}" alt="">
+
+              <div class="works__info">
+                  <div class="works__title">text</div>
+                  <div class="works__text">text</div>
+              </div>
+          </div>
+            </div>
+           <div class="works__col">
+              <div class="works__item">
+
+                      <img class="works__image" src="{{el.img_thre.url}}" alt="">
+
+                  <div class="works__info">
+                      <div class="works__title">text</div>
+                      <div class="works__text">text</div>
+                  </div>
+              </div>
+              <div class="works__item">
+
+                     <img class="works__image" src="{{el.img_four.url}}" alt="">
+
+                 <div class="works__info">
+                     <div class="works__title">text</div>
+                     <div class="works__text">text</div>
+                 </div>
+             </div>
+           </div>
+           <div class="works__col">
+              <div class="works__item">
+
+                      <img class="works__image" src="{{el.img_five.url}}" alt="">
+
+                  <div class="works__info">
+                      <div class="works__title">text</div>
+                      <div class="works__text">text</div>
+                  </div>
+              </div>
+           </div>
+           <div class="works__col">
+              <div class="works__item">
+
+                      <img class="works__image" src="{{el.img_six.url}}" alt="">
+
+                  <div class="works__info">
+                      <div class="works__title">text</div>
+                      <div class="works__text">text</div>
+                  </div>
+              </div>
+              <div class="works__item">
+
+                     <img class="works__image" src="{{el.img_seven.url}}" alt="">
+
+                 <div class="works__info">
+                     <div class="works__title">text</div>
+                     <div class="works__text">text</div>
+                 </div>
+             </div>
+           </div>
+        </div>
+        {% endfor %}
+
+    </section>
+        <section class="section">
+            <div class="container">
+                <div class="container">
+                  <div class="section__header">
+                  </div>
+                  </div>
+                <div class="about">
+                    {% get_puppy as dog %}
+                    {% for el in dog %}
+                    {% if el.display_galery.dog_display_galery == "Да" %}
+                  <div class="about__item">
+                      <div class="about__inner">
+                      <div class="about__img">
+                          <img src="{{el.img.url}}" alt="кортинка">
+                         <a href="{% url 'family' el.id %}"><div class="about__text">{{el.name}}</div></a>
+                      </div>
+                      </div>
+                  </div>
+
+                  {% get_post as post %}
+                  {% for p in post %}
+                  {% if el.id == p.post.id %}
+                  <div class="about__item">
+                    <div class="about__inner">
+                    <div class="about__img">
+                        <img src="{{p.imgs.url}}" alt="кортинка">
+                       <a href="{% url 'family' p.post.id %}"><div class="about__text">{{p.post.name}}</div></a>
+                    </div>
+                    </div>
+                </div>
+                {% else %}
+                {% endif %}
+                {% endfor %}  
+                {% else %}
+                {% endif %}
+                {% endfor %}
+
+
+
+                  </div>
+                  </div>
+        </section>
+
+
+</div>
+</section>
+{% endblock %}

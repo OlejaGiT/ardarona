@@ -1,0 +1,38 @@
+<div class="family__parents">
+    <div class="parents__col">
+        <div class="section__header">
+            <h1 class="section__title">parents</h1>
+        </div>
+        {% if family.father.id %}
+        
+            <div class="about__item-family">
+                <div class="about__inner">
+                    <div class="about__img-family">
+                        <img src="{{ family.father.img.url }}" alt="">
+                        <a href="{% url 'family' family.father.id %}"><div class="about__text">Father</div></a>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        {% else %}
+        {% endif %}
+        {% if family.mother.id %}
+            <div class="about__item-family">
+                <div class="about__inner">
+                    <div class="about__img-family">
+                        <img src="{{ family.mother.img.url }}" alt="">
+                        <a href="{% url 'family' family.mother.id %}"><div class="about__text">mother</div></a>
+                    </div>
+                </div>
+            </div>
+        
+        {% else %}
+        {% endif %}
+    </div>
+    {% include 'inc/_puppy.html' %}
+    {% include 'inc/_pet_card.html' %}
+    
+</div>
+<div class="parents__text">{{family.info|safe}}</div>
+
