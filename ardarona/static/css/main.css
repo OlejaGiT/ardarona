@@ -52,10 +52,9 @@ hr {
 .intro__inner {
     width: 30%;
     max-width: 100%;
-    margin-top: 100px;
     text-align: center;
     position: absolute;
-    top: 20vh;
+    top: 40vh;
     right: 0;
     left: 0;
     z-index: 1;
@@ -114,6 +113,7 @@ hr {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .header_link {
     text-decoration: none;
@@ -1236,7 +1236,9 @@ hr {
     .wedo__img {
         display: none;
     }
-
+    .intro__inner {
+        width: 100%;
+    }
     .blog__item {
         width: 100%;
         max-width: 410px;
@@ -1295,9 +1297,6 @@ hr {
     }
     .intro__suptitle {
         font-size: 20px;
-    }
-    .intro__inner {
-        width: 100%;
     }
     .nav__link {
         font-size: 15px;
